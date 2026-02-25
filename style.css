@@ -1,0 +1,361 @@
+:root {
+    --main: #585e83;
+    --text: #505f85;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Cormorant", serif;
+    background-color: #fff;
+    color: var(--text);
+}
+
+p {
+    margin: 0;
+}
+
+/* Fonts */
+@font-face {
+    font-family: "Bickham Script";
+    src: url("./fonts/bickhamscriptthree.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cormorant";
+    src: url("./fonts/CormorantInfant-Regular.ttf") format("truetype");
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url("image/bg.png") center/cover no-repeat;
+    padding: 40px 20px;
+}
+
+.hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--main);
+}
+
+.hero__content-names {
+    font-family: "Bickham Script";
+    font-size: 72px;
+    line-height: 0.9;
+}
+
+.amp {
+    font-size: 56px;
+    margin: -8px 0;
+}
+
+.hero__text {
+    margin-top: 24px;
+    letter-spacing: 2px;
+}
+
+.hero__date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.mini-flower {
+    width: 36px;
+}
+
+.hero__date-number {
+    font-size: 48px;
+}
+
+.hero__date-month {
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+.hero__date-desc {
+    max-width: 320px;
+    margin-top: 16px;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 30px auto 0;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+}
+
+.countdown__item {
+    text-align: center;
+    font-family: "Bickham Script";
+    color: var(--main);
+    line-height: 0.9;
+}
+
+.countdown__item span {
+    display: block;
+    font-size: 64px;
+}
+
+.countdown__item p {
+    font-size: 36px;
+    margin-top: -4px;
+}
+
+/* ================= INVITE ================= */
+
+.invite {
+    background: url("image/bg2.png") center/cover no-repeat;
+    padding: 60px 20px;
+}
+
+.invite__card {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.invite__inner {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.invite__title {
+    font-family: "Bickham Script";
+    font-size: 64px;
+    color: var(--main);
+}
+
+.invite__title-descr {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.invite__descr {
+    margin-top: 16px;
+    font-family: "Bickham Script";
+    font-size: 42px;
+    line-height: 1.3;
+}
+
+.invite__photo {
+    margin: 30px 0;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.invite__name {
+    font-family: "Bickham Script";
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.invite__exception {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.invite__exception-desc {
+    font-size: 16px;
+}
+
+.invite__exception-descr {
+    max-width: 280px;
+    margin-left: auto;
+    font-size: 18px;
+}
+
+/* ================= PALETTE ================= */
+
+.palette {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.palette__circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.black { background: #000; }
+.brown-dark { background: #5a3a1e; }
+.brown { background: #9a6324; }
+.beige { background: #b98a52; }
+.milk { background: #f1dfcf; }
+
+/* ================= MESSAGE ================= */
+
+.message__card {
+    margin-top: 40px;
+    background: rgba(255,255,255,0.9);
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.message__title {
+    font-size: 18px;
+    color: var(--main);
+    margin-bottom: 16px;
+}
+
+.message__textarea {
+    width: 100%;
+    height: 110px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    padding: 14px;
+    font-size: 16px;
+    resize: none;
+    font-family: inherit;
+}
+
+.message__textarea:focus {
+    outline: none;
+    border-color: var(--main);
+}
+
+.message__btn {
+    margin-top: 16px;
+    background: var(--main);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.message__btn:hover {
+    background: #7185b8;
+}
+
+/* ================= MAP ================= */
+
+.map {
+    margin-top: 40px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+
+    .hero__content-names {
+        font-size: 72px;
+    }
+
+    .amp {
+        font-size: 72px;
+    }
+
+    .hero__date-number {
+        font-size: 36px;
+    }
+
+    .hero__date-month {
+        font-size: 18px;
+    }
+
+    .hero__date-desc {
+        max-width: 260px;
+        font-size: 14px;
+    }
+
+    .countdown__item {
+        line-height: 0.7;
+    }
+    .countdown__item span {
+        font-size: 48px;
+    }
+
+    .countdown__item p {
+        font-size: 30px;
+    }
+
+    .invite {
+        padding: 40px 16px;
+    }
+
+    .invite__inner {
+        padding: 24px 16px;
+    }
+
+    .invite__title {
+        font-size: 64px;
+        line-height: 1.6;
+    }
+
+    .invite__descr {
+        font-size: 48px;
+    }
+
+    .invite__photo {
+        width: 150px;
+    }
+
+    .invite__name {
+        margin-top: 10px;
+        font-size: 48px;
+        line-height: .6;
+    }
+
+    .invite__exception-descr {
+        max-width: 100%;
+        margin-left: 0;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .message__card {
+        padding: 20px;
+    }
+
+    .message__textarea {
+        height: 100px;
+        font-size: 14px;
+    }
+
+    .message__btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .map iframe,
+    .map script {
+        width: 100% !important;
+    }
+}
