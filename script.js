@@ -1,3 +1,11 @@
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("heroAfter").classList.add("show-content");
+        document.getElementById("countdownBlock").classList.add("show-content");
+    }, 4500);
+});
+
+
 const weddingDate = new Date("May 16, 2026 00:00:00").getTime();
 
 function addZero(num) {
@@ -28,3 +36,21 @@ const timer = setInterval(() => {
     document.getElementById("seconds").textContent = addZero(seconds);
 
 }, 1000);
+
+
+const flowersContainer = document.querySelector(".flowers-layer");
+
+for (let i = 0; i < 20; i++) {
+
+    const flower = document.createElement("img");
+    flower.src = "image/mini-flowers.png";
+    flower.classList.add("flower");
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = 8 + Math.random() * 6 + "s";
+    flower.style.animationDelay = Math.random() * 5 + "s";
+    flower.style.width = 25 + Math.random() * 35 + "px";
+    flower.style.opacity = 0.4 + Math.random() * 0.6;
+
+    flowersContainer.appendChild(flower);
+}

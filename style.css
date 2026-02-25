@@ -38,17 +38,37 @@ p {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: url("image/bg.png") center/cover no-repeat;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("image/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* 🔥 эффект параллакса */
+
     padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
+
+/* Контент поверх маски */
 .hero__content {
+    position: relative;
+    z-index: 2;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    color: #ffffff; /* если фон тёмный */
+}
+
+
+/* Если хочешь оставить твой цвет */
+.hero__content {
     color: var(--main);
 }
 
@@ -56,6 +76,63 @@ p {
     font-family: "Bickham Script";
     font-size: 72px;
     line-height: 0.9;
+}
+
+.names-svg {
+    width: 100%;
+    height: 220px;
+    font-family: "Bickham Script";
+
+}
+
+/* Письмо */
+.write {
+    fill: none;
+    stroke: var(--main);
+    stroke-width: 1.5;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: write 3s ease forwards;
+}
+
+
+.write-bottom {
+    animation-delay: 3.5s;
+}
+
+
+.amp-svg {
+    font-size: 56px;
+    fill: var(--main);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 3s;
+}
+
+.hero__after,
+#countdownBlock {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s ease;
+}
+
+.hero__after.show-content,
+#countdownBlock.show-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes write {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 .amp {
@@ -100,7 +177,7 @@ p {
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 20px;
+    padding: 15px;
     margin: 30px auto 0;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
@@ -126,7 +203,7 @@ p {
 /* ================= INVITE ================= */
 
 .invite {
-    background: url("image/bg2.png") center/cover no-repeat;
+    background: url("image/bg2.png");
     padding: 60px 20px;
 }
 
@@ -263,20 +340,59 @@ p {
     background: #7185b8;
 }
 
+.message__input {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.message__input:focus {
+    outline: none;
+    border-color: var(--main);
+}
+
 /* ================= MAP ================= */
 
 .map {
     margin-top: 40px;
 }
 
+
+.flowers-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none; /* чтобы не мешали кликам */
+    z-index: 999; /* ВЫШЕ текста */
+    overflow: hidden;
+}
+
+/* Каждый цветок */
+.flower {
+    position: absolute;
+    top: -60px;
+    width: 40px;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+/* Анимация падения */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-
-
-    .hero__content-names {
-        font-size: 72px;
-    }
 
     .amp {
         font-size: 72px;

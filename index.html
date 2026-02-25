@@ -14,23 +14,50 @@
 
             <div class="hero__content">
                 <div class="hero__content-names">
-                    <p class="name name-top">Михаил</p>
-                    <div class="amp">&</div>
-                    <p class="name name-bottom">Анастасия</p>
+
+                <svg viewBox="0 0 300 220" class="names-svg">
+
+                    <text x="50%" y="85"
+                        text-anchor="middle"
+                        class="write write-top">
+                    Михаил
+                    </text>
+
+                    <text x="50%" y="125"
+                        text-anchor="middle"
+                        class="amp-svg">
+                    &
+                    </text>
+
+                    <text x="50%" y="175"
+                        text-anchor="middle"
+                        class="write write-bottom">
+                    Анастасия
+                    </text>
+
+                </svg>
+
                 </div>
-                <p class="hero__text">ПРИГЛАШАЕМ НА СВАДЬБУ</p>
-                <div class="hero__date">
-                    <img src="image/mini-flowers.png" class="mini-flower">
-                    <p class="hero__date-number">16</p>
-                    <img src="image/mini-flowers.png" class="mini-flower">
+                <div class="hero__after" id="heroAfter">
+
+                    <p class="hero__text">ПРИГЛАШАЕМ НА СВАДЬБУ</p>
+
+                    <div class="hero__date">
+                        <img src="image/mini-flowers.png" class="mini-flower">
+                        <p class="hero__date-number">16</p>
+                        <img src="image/mini-flowers.png" class="mini-flower">
+                    </div>
+
+                    <p class="hero__date-month">мая</p>
+
+                    <p class="hero__date-desc">
+                        БУДЕМ СЧАСТЛИВЫ РАЗДЕЛИТЬ ЭТОТ ДЕНЬ С ВАМИ!
+                    </p>
+
                 </div>
-                <p class="hero__date-month">мая</p>
-                <p class="hero__date-desc">
-                    БУДЕМ СЧАСТЛИВЫ РАЗДЕЛИТЬ ЭТОТ ДЕНЬ С ВАМИ!
-                </p>
             </div>
         
-            <div class="countdown">
+            <div class="countdown" id="countdownBlock">
                 <div class="countdown__item">
                     <span id="weeks">00</span>
                     <p>недель</p>
@@ -52,7 +79,7 @@
                     <p>секунд</p>
                 </div>
             </div>
-
+        <div class="flowers-layer"></div>
         </section>
 
         <section class="invite">
@@ -90,15 +117,36 @@
                         <p class="message__title">
                             💬 Добавить сообщение для жениха и невесты: Ваше ФИО и того с кем придёте.
                         </p>
-                        <textarea class="message__textarea" placeholder=""></textarea>
-                        <button class="message__btn">
-                            ✈ Отправить
-                        </button>
+
+                        <form action="https://api.web3forms.com/submit" method="POST">
+
+                            <input type="hidden" name="access_key" value="b0654ac3-f354-4e11-ada4-5d16232c644d">
+                            <input type="hidden" name="subject" value="Подтверждение присутствия на свадьбе">
+                            <input type="checkbox" name="botcheck" style="display: none;">
+
+                            <input 
+                                type="tel"
+                                name="phone"
+                                class="message__input"
+                                placeholder="Введите номер телефона"
+                                pattern="^\d{10,15}$"
+                                required
+                            >
+
+                            <!-- ФИО -->
+                            <textarea name="message" class="message__textarea" placeholder="Введите ваше ФИО и с кем придёте" required></textarea>
+
+                            <button type="submit" class="message__btn">
+                                ✈ Отправить
+                            </button>
+
+                        </form>
                     </div>
+
                     <div class="map">
                         <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad6edb45b0e6f0c4f04da64a7c72bef9a31cc59fa6dce9f144a7b435fad512e79&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
 
