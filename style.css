@@ -92,15 +92,15 @@ p {
     stroke: var(--main);
     stroke-width: 1.5;
 
-    stroke-dasharray: none;
-    stroke-dashoffset: 0;
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
 
     stroke-linecap: round;
     stroke-linejoin: round;
 
     vector-effect: non-scaling-stroke;
 
-    animation: write 3s linear forwards;
+    animation: write 4.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
     
 }
 
