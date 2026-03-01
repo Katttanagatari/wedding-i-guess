@@ -1,6 +1,6 @@
 :root {
     --main: #585e83;
-    --text: #505f85;
+    --text: #585e83;
 }
 
 /* Reset */
@@ -24,12 +24,12 @@ p {
 /* Fonts */
 @font-face {
     font-family: "Bickham Script";
-    src: url("./fonts/bickhamscriptthree.ttf") format("truetype");
+    src: url("./fonts/bickhamscriptthree.woff2") format("truetype");
 }
 
 @font-face {
     font-family: "Cormorant";
-    src: url("./fonts/CormorantInfant-Regular.ttf") format("truetype");
+    src: url("./fonts/CormorantInfant-Regular.woff2") format("truetype");
 }
 
 /* ================= HERO ================= */
@@ -46,59 +46,13 @@ p {
     overflow: hidden;
 }
 
-.hero-bg-decor {
+.hero-video {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.decor {
-    position: absolute;
-    opacity: 0.8;
-    will-change: transform, opacity;
-}
-
-@keyframes fallElegant {
-    0% {
-        transform: translateY(0) rotate(var(--rot));
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: translateY(120vh) rotate(calc(var(--rot) + 360deg));
-        opacity: 0;
-    }
-}
-
-.falling {
-    animation: fallElegant 12s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-
-/* Плавное появление */
-@keyframes fadeInSoft {
-    0% { opacity: 0; }
-    100% { opacity: 0.8; }
-}
-
-
-.respawn {
-    animation: fadeInSoft 1.5s ease forwards;
-}
-
-.d1 { top:-80px; left:-100px; width:260px; --rot: 5deg; }
-.d2 { top:-120px; right:-90px; width:220px; --rot: -35deg; }
-.d3 { bottom:-100px; left:-130px; width:240px; --rot: 40deg; }
-.d4 { bottom:-120px; right:-110px; width:230px; --rot: -25deg; }
-.d5 { top:30%; left:-140px; width:210px; --rot: 55deg; }
-.d6 { top:40%; right:-120px; width:250px; --rot: -45deg; }
-.d7 { bottom:10%; left:20%; width:200px; --rot: 30deg; }
-
-.decor {
-    position: absolute;
-    opacity: 0.8;
-    transform: rotate(var(--rot));
 }
 
 /* Контент поверх маски */
@@ -112,14 +66,9 @@ p {
     align-items: center;
     text-align: center;
 
-    color: #ffffff; /* если фон тёмный */
-}
-
-
-/* Если хочешь оставить твой цвет */
-.hero__content {
     color: var(--main);
 }
+
 
 .hero__content-names {
     font-family: "Bickham Script";
