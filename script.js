@@ -37,20 +37,50 @@ const timer = setInterval(() => {
 
 }, 1000);
 
+const flowers = document.querySelectorAll('.decor');
 
-const flowersContainer = document.querySelector(".flowers-layer");
+let activeFalls = 0;
+const MAX_FALLS = 3;
 
-for (let i = 0; i < 20; i++) {
+function startFall(flower) {
+    activeFalls++;
 
-    const flower = document.createElement("img");
-    flower.src = "image/mini-flowers.png";
-    flower.classList.add("flower");
+    flower.classList.add('falling');
 
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = 8 + Math.random() * 6 + "s";
-    flower.style.animationDelay = Math.random() * 5 + "s";
-    flower.style.width = 25 + Math.random() * 35 + "px";
-    flower.style.opacity = 0.4 + Math.random() * 0.6;
+    flower.addEventListener('animationend', () => {
+        flower.classList.remove('falling');
+        activeFalls--;
 
-    flowersContainer.appendChild(flower);
+        // Скрываем полностью перед возвращением
+        flower.style.opacity = "0";
+
+        const delay = 2000 + Math.random() * 4000;
+
+        setTimeout(() => {
+            flower.classList.add('respawn');
+
+            flower.addEventListener('animationend', () => {
+                flower.classList.remove('respawn');
+                flower.style.opacity = "0.8";
+            }, { once: true });
+
+        }, delay);
+
+    }, { once: true });
 }
+
+function randomCycle() {
+    if (activeFalls >= MAX_FALLS) return;
+
+    const available = Array.from(flowers)
+        .filter(f => !f.classList.contains('falling'));
+
+    if (available.length === 0) return;
+
+    const flower = available[Math.floor(Math.random() * available.length)];
+    startFall(flower);
+}
+
+setInterval(() => {
+    randomCycle();
+}, 3000);
